@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chhin Paralin | Portfolio</title>
+    <style>
+        /* Elegant Color Palette */
+        :root {
+            --bg-color: #ffffff;
+            --navbar-bg: #1f2937; /* Elegant Dark Gray */
+            --navbar-text: #f8fafc;
+            --navbar-hover: #38bdf8;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --border-color: #e5e7eb;
+            --accent: #111827;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            scroll-behavior: smooth; /* Smooth scrolling when links are clicked */
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.7;
+            padding-top: 80px; /* Offset to prevent navbar from covering text */
+        }
+
+        /* Fixed Dark Gray Navbar Frame */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--navbar-bg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 40px;
+            z-index: 1000;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            color: var(--navbar-text);
+            text-transform: uppercase;
+        }
+
+        nav .links a {
+            color: var(--navbar-text);
+            text-decoration: none;
+            margin-left: 24px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        nav .links a:hover {
+            color: var(--navbar-hover);
+        }
+
+        /* Main Container setup */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+
+        /* Section Layouts */
+        section {
+            padding: 60px 0 20px 0;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            font-weight: 400;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent);
+            margin-bottom: 24px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--accent);
+            display: inline-block;
+        }
+
+        p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-bottom: 16px;
+        }
+
+        /* Project Items */
+        .project-item {
+            margin-bottom: 32px;
+            padding: 20px;
+            background-color: #f9fafb;
+            border-radius: 6px;
+            border-left: 4px solid var(--navbar-bg);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 6px;
+        }
+
+        .project-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .project-timeline {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-top: 10px;
+            color: var(--accent);
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.95rem;
+            border-bottom: 1px solid var(--accent);
+        }
+
+        .project-link:hover {
+            color: var(--text-muted);
+            border-bottom-color: var(--text-muted);
+        }
+
+        /* Education Layout elements */
+        .edu-item {
+            margin-bottom: 24px;
+        }
+
+        .edu-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .edu-sub {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+            font-weight: 500;
+        }
+
+        .edu-list {
+            padding-left: 20px;
+            color: var(--text-muted);
+        }
+
+        .edu-list li {
+            margin-bottom: 4px;
+        }
+
+        /* Skills Layout */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+        }
+
+        .grid-column h3 {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+
+        .list-items {
+            list-style: none;
+        }
+
+        .list-items li {
+            color: var(--text-muted);
+            margin-bottom: 6px;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .list-items li::before {
+            content: "—";
+            margin-right: 8px;
+            color: var(--text-muted);
+        }
+
+        .ai-note {
+            margin-top: 20px;
+            padding: 12px 16px;
+            background-color: #f3f4f6;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        /* Contact Details Layout */
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .contact-info a, .contact-info span {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 1.05rem;
+        }
+
+        .contact-info a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
+        /* Responsive Fixes */
+        @media (max-width: 600px) {
+            body { padding-top: 120px; }
+            nav { flex-direction: column; gap: 12px; padding: 15px; }
+            nav .links a { margin: 0 10px; font-size: 0.9rem; }
+            .project-header { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Fixed Dark Gray Navigation Frame -->
+    <nav>
+        <div class="logo">CP.dev</div>
+        <div class="links">
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#education">Education</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <!-- About Me Section -->
+        <section id="about">
+            <h1>Chhin Paralin</h1>
+            <div class="subtitle">Software Engineering Student & Intern</div>
+            <p>
+                I am a Software Engineering student who loves solving problems and fixing broken code. I am great at reading existing code, troubleshooting bugs, and using modern AI tools to research and build things faster. I am looking for an IT internship where I can help a team fix issues and learn real world development.
+            </p>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <div><h2>Projects</h2></div>
+
+            <!-- Project 1 -->
+            <div class="project-item">
+                <div class="project-header">
+                    <span class="project-title">E-Commerce Web Application</span>
+                    <span class="project-timeline">Year 2, Semester 1</span>
+                </div>
+                <p>
+                    Worked on both the frontend (what users see) and backend (server logic) of a web app. Connected the frontend to the backend so data could move smoothly between them. Built a beauty e-commerce store featuring dynamic shopping carts and detailed product grids.
+                </p>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-item">
+                <div class="project-header">
+                    <span class="project-title">Database Management System</span>
+                    <span class="project-timeline">Year 2, Semester 2</span>
+                </div>
+                <p>
+                    Built a relational database from scratch to store and organize data properly.
+                </p>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-item">
+                <div class="project-header">
+                    <span class="project-title">Personal HTML Website</span>
+                    <span class="project-timeline">Year 1, Semester 2</span>
+                </div>
+                <p>
+                    Created a clean website using basic HTML and CSS layout rules.
+                </p>
+                <a href="https://github.io" class="project-link" target="_blank">Launch Website Demo →</a>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education">
+            <div><h2>Education</h2></div>
+
+                <div class="edu-title">OUDONG HIGH SCHOOL - 2019-2024 </div>
+                <ul class="edu-list">
+                    <li>Exam Diploma passed in 2021. </li>
+                    <li>Successfully completed high school and passed
+                        the national examination (Bacii 2024).</li><br>
+               
+                <div class="edu-title">Bachelor's Degree in Software Engineering</div>
+                <div class="edu-sub">Year 3 — Current Enrollment</div>
+                <ul class="edu-list">
+                    <li>Currently studying Software Engineering.</li>
+                    <section id="skills">
+                        <div><h2>Skills & Languages</h2></div>
+                        <div class="grid-container">
+                            
+                            <!-- Programming Languages & Stack -->
+                            <div class="grid-column">
+                                <h3>Programming Stack</h3>
+                                <ul class="list-items">
+                                    <li>C# / C++</li>
+                                    <li>HTML5 / CSS3</li>
+                                    <li>SQL (Database Design)</li>
+                                    <li>React (Frontend)</li>
+                                    <li>Laravel (Backend)</li>
+                                    <li>APIs & Networking</li>
+                                    <li>Java</li>
+                                </ul>
+                            </div>
+            
+                            <!-- Professional Framework Capabilities -->
+                            <div class="grid-column">
+                                <h3>Core Capabilities</h3>
+                                <ul class="list-items">
+                                    <li>Database Design (DBMS)</li>
+                                    <li>Analytical Problem-Solving</li>
+                                    <li>Tools & Workflow</li>
+                                    <li>Creative Thinking & Design</li>
+                                </ul>
+                            </div>
+            
+                            <!-- Spoken / Written Languages -->
+                            <div class="grid-column">
+                                <h3>Languages</h3>
+                                <ul class="list-items">
+                                    <li>Khmer (Native)</li>
+                                    <li>English</li>
+                                    <li>Chinese</li>
+                                </ul>
+                            </div>
+            
+                        </div>
+                        <div class="ai-note">
+                            💡 <strong>Development Strategy:</strong> I frequently leverage modern AI tools to accelerate my technical research, clean up logic, and build application features effectively.
+                        </div>
+                    </section>
+            
+                    <!-- Contact Section -->
+                    <section id="contact">
+                        <div><h2>Contact</h2></div>
+                        <p>I am actively seeking software developer internships or junior positions around Phnom Penh. Feel free to contact me!</p>
+                        <div class="contact-info">
+                            <span>📧 <strong>Email:</strong> <a href="mailto:chhinparalin4@gmail.com">chhinparalin4@gmail.com</a></span>
+                            <span>📞 <strong>Phone:</strong> <a href="tel:+85593548816">+855 93 548 816</a></span>
+                            <span>📍 <strong>Address:</strong> Street 202, Sangkat tuek l'ak ti3, Toul kork, Phnom Penh</span>
+                        </div>
+                    </section>
+                </div>
+            
+            </body>
+            </html>
+            
